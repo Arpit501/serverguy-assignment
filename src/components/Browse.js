@@ -96,14 +96,11 @@ const Browse = () => {
             src="https://hn.algolia.com/public/899d76bbc312122ee66aaaff7f933d13.png"
             alt="Logo"
           />
-
-<span className=" text-white font-semibold text-lg font-sans mr-1 cursor-pointer hover:text-black">{user && user.displayName}</span>
-
     
         </div>
 
         <div className="w-3/4 flex items-center ">
-          <img src={search_icon} alt="" className="w-5 h-5 absolute left-56"/>
+          <img src={search_icon} alt="" className="w-5 h-5 absolute left-44"/>
           <input
             className="w-3/4 h-12 p-3 pl-14"
             type="search"
@@ -114,10 +111,8 @@ const Browse = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
-
-        {/* <div>logout</div> */}
         
-<div className="flex justify-center mt-1 ">
+ <div className="flex justify-center mt-1 ">
 <button className="font-semibold bg-orange-500 text-white p-2" onClick={handleSignOut}><i>Logout</i></button>
 </div>
 
@@ -125,6 +120,11 @@ const Browse = () => {
       </div>
 
       <div className="bg-orange-50 w-full">
+
+    <div className="my-2">
+         <span className=" text-orange-500 p-2 font-semibold text-lg font-sans mr-1 cursor-pointer hover:text-black">Welcome {user && user.displayName}</span>
+    </div>
+
         <div className="ml-3">
           {filteredData.map((item) => (
             <div
