@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import search_icon from "../images/search_icon.png";
 import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { FILTER_FOR, FILTER_SEARCH } from "../utils/constants";
 import { FILTER_BY } from "../utils/constants";
 import { FILTERS } from "../utils/filterConstants";
@@ -25,7 +25,7 @@ const Browse = () => {
 
   //   const [searchf,setSearchf]=useState("");
   const navigate = useNavigate();
-  //   const user = useSelector((store) => store.user);
+    const user = useSelector((store) => store.user);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -151,9 +151,8 @@ const Browse = () => {
       </div>
 
       <div className="bg-orange-50 w-full">
-        <div className="flex py-4 px-2 items-center">
-          {/* <span className=" text-orange-500 p-2 font-semibold text-lg font-sans mr-1 cursor-pointer hover:text-black">Welcome {user && user.displayName}</span> */}
-
+        <div className="flex py-4 px-2 items-center w-full" >
+         
           <p className="text-sm">Search</p>
 
           <select
@@ -216,6 +215,10 @@ const Browse = () => {
               </option>
             ))}
           </select>
+
+          <div className="absolute right-0">
+     <span className=" text-orange-500 p-2 font-semibold text-lg font-sans mr-1 cursor-pointer hover:text-black">Welcome {user && user.displayName}</span>
+        </div>
         </div>
 
         <div className="ml-3">
